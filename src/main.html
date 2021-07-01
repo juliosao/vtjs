@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>vtjs</title>
+        <!--link rel="manifest" href="./manifest.json"-->
+        <link rel="stylesheet" href="css/vt.css">
+        <script src="./js/vt.js" ></script>
+        <script type="text/javascript">
+        function init()
+        {
+            var terminal = new vt(document.getElementById("vt"));
+            main(terminal);
+        }
+
+        async function main(terminal)
+        {
+            terminal.printf("HOLA MUNDO\rESTO VA EN OTRA LINEA");
+            while(true)
+            {
+                let ch = await terminal.getc();
+                //terminal.putc(ch);
+            }
+        }
+        </script>
+    </head>
+    <body onload="init()">
+        <canvas id="vt" class="vt" width="640" height="480" />
+    </body>
+</html>
